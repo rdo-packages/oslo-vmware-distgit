@@ -1,7 +1,7 @@
 %global sname oslo.vmware
 
 Name:           python-oslo-vmware
-Version:        0.5.0
+Version:        0.6.0
 Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
@@ -55,24 +55,28 @@ sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 %{__python2} setup.py build
 
 # generate html docs
-sphinx-build doc/source html
+export PYTHONPATH="$( pwd ):$PYTHONPATH"
+%{__python2} setup.py build_sphinx
 
 # remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
+rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 %files
 %doc README.rst LICENSE
-%{python2_sitelib}/oslo
-%{python2_sitelib}/%{sname}-%{version}-py?.?-*.pth
-%{python2_sitelib}/%{sname}-%{version}-py?.?.egg-info
+%{python_sitelib}/oslo
+%{python_sitelib}/*.egg-info
+%{python_sitelib}/*-nspkg.pth
 
 %files doc
-%doc html doc/source/readme.rst
+%doc doc/build/html
 
 %changelog
+* Sun Sep 21 2014 Alan Pevec <apevec@redhat.com> - 0.6.0-1
+- Upstream 0.6.0
+
 * Thu Sep 11 2014 Haïkel Guémar <hguemar@fedoraproject.org> - 0.5.0-1
 - Upstream 0.5.0
 
