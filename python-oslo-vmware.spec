@@ -1,7 +1,7 @@
 %global sname oslo.vmware
 
 Name:           python-oslo-vmware
-Version:        0.6.0
+Version:        0.10.0
 Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
@@ -11,7 +11,7 @@ Source0:        https://pypi.python.org/packages/source/o/%{sname}/%{sname}-%{ve
 
 BuildArch:      noarch
 
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 
 Requires:  python-stevedore
@@ -66,14 +66,18 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %files
 %doc README.rst LICENSE
-%{python_sitelib}/oslo
-%{python_sitelib}/*.egg-info
-%{python_sitelib}/*-nspkg.pth
+%{python2_sitelib}/oslo/vmware
+%{python2_sitelib}/oslo_vmware
+%{python2_sitelib}/*.egg-info
+%{python2_sitelib}/*-nspkg.pth
 
 %files doc
 %doc doc/build/html
 
 %changelog
+* Tue Feb 24 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 0.10.0-1
+- Upstream 0.10.0
+
 * Sun Sep 21 2014 Alan Pevec <apevec@redhat.com> - 0.6.0-1
 - Upstream 0.6.0
 
