@@ -1,7 +1,7 @@
 %global sname oslo.vmware
 
 Name:           python-oslo-vmware
-Version:        0.10.0
+Version:        0.11.1
 Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
@@ -21,6 +21,10 @@ Requires:  python-six
 Requires:  python-babel
 Requires:  python-suds
 Requires:  python-eventlet
+Requires:  python-oslo-concurrency
+Requires:  python-oslo-i18n
+Requires:  python-oslo-utils
+Requires:  python-requests
 Requires:  PyYAML
 
 %description
@@ -42,14 +46,7 @@ BuildRequires: python-oslo-sphinx
 Documentation for OpenStack common VMware library.
 
 %prep
-
 %setup -q -n %{sname}-%{version}
-
-# Remove bundled egg-info
-rm -rf %{sname}.egg-info
-
-# make doc build compatible with python-oslo-sphinx RPM
-sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 
 %build
 %{__python2} setup.py build
@@ -65,16 +62,21 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 %files
-%doc README.rst LICENSE
-%{python2_sitelib}/oslo/vmware
+%license LICENSE
+%doc README.rst
+%{python2_sitelib}/oslo
 %{python2_sitelib}/oslo_vmware
 %{python2_sitelib}/*.egg-info
 %{python2_sitelib}/*-nspkg.pth
 
 %files doc
+%license LICENSE
 %doc doc/build/html
 
 %changelog
+* Tue Mar 31 2015 Alan Pevec <apevec@redhat.com> - 0.11.1-1
+- Upstream 0.11.1
+
 * Tue Feb 24 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 0.10.0-1
 - Upstream 0.10.0
 
