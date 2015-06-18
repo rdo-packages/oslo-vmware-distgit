@@ -2,7 +2,7 @@
 
 Name:           python-oslo-vmware
 Version:        0.11.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
 License:        ASL 2.0
@@ -74,6 +74,9 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %doc doc/build/html
 
 %changelog
+* Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.11.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Tue Mar 31 2015 Alan Pevec <apevec@redhat.com> - 0.11.1-1
 - Upstream 0.11.1
 
