@@ -1,13 +1,15 @@
-%global sname oslo.vmware
+%global pypi_name oslo.vmware
+
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-oslo-vmware
-Version:        0.11.1
-Release:        2%{?dist}
+Version:        1.19.0
+Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
 License:        ASL 2.0
 URL:            http://launchpad.net/oslo
-Source0:        https://pypi.python.org/packages/source/o/%{sname}/%{sname}-%{version}.tar.gz
+Source0:        https://pypi.python.org/packages/source/o/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 BuildArch:      noarch
 
@@ -41,12 +43,21 @@ Group:      Documentation
 
 BuildRequires: python-sphinx
 BuildRequires: python-oslo-sphinx
+# autodoc API
+BuildRequires: python-fixtures
+BuildRequires: python-mock
+BuildRequires: python-netaddr
+BuildRequires: python-oslo-concurrency
+BuildRequires: python-oslo-i18n
+BuildRequires: python-oslo-utils
+BuildRequires: python-requests >= 2.3.0
+BuildRequires: python-suds
 
 %description doc
 Documentation for OpenStack common VMware library.
 
 %prep
-%setup -q -n %{sname}-%{version}
+%setup -q -n %{pypi_name}-%{upstream_version}
 
 %build
 %{__python2} setup.py build
@@ -62,18 +73,20 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 %files
+%{!?_licensedir:%global license %%doc}
 %license LICENSE
 %doc README.rst
-%{python2_sitelib}/oslo
 %{python2_sitelib}/oslo_vmware
 %{python2_sitelib}/*.egg-info
-%{python2_sitelib}/*-nspkg.pth
 
 %files doc
 %license LICENSE
 %doc doc/build/html
 
 %changelog
+* Tue Aug 18 2015 Alan Pevec <alan.pevec@redhat.com> 1.19.0-1
+- Update to upstream 1.19.0
+
 * Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.11.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
