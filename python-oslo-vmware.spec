@@ -3,7 +3,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-oslo-vmware
-Version:        1.19.0
+Version:        1.21.0
 Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
@@ -84,6 +84,9 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %doc doc/build/html
 
 %changelog
+* Fri Sep 18 2015 Alan Pevec <alan.pevec@redhat.com> 1.21.0-1
+- Update to upstream 1.21.0
+
 * Tue Aug 18 2015 Alan Pevec <alan.pevec@redhat.com> 1.19.0-1
 - Update to upstream 1.19.0
 
