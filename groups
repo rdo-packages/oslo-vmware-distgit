@@ -1,5 +1,5 @@
-# UUID          Group Name
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
-13345d4d29b847f58f0e4dade48d78f7b5304d7d       	oslo-vmware-distgit-core
-6acf6ef69bddf226519620b623c73398131bb00e        	oslo-vmware-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+13345d4d29b847f58f0e4dade48d78f7b5304d7d	oslo-vmware-distgit-core
+6acf6ef69bddf226519620b623c73398131bb00e	openstack/oslo-vmware-distgit-ptl
+global:Registered-Users                 	Registered Users
