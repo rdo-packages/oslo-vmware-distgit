@@ -42,6 +42,8 @@ BuildRequires: python-coverage
 BuildRequires: python-suds
 BuildRequires: python-oslo-utils
 BuildRequires: python-oslo-i18n
+# Required to compile translation files
+BuildRequires:  python-babel
 
 Requires:  python-stevedore
 Requires:  python-netaddr
@@ -51,6 +53,7 @@ Requires:  python-babel
 Requires:  python-suds >= 0.6
 Requires:  python-eventlet
 Requires:  PyYAML
+Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 
 %description -n python2-%{pkg_name}
 The Oslo project intends to produce a python library containing infrastructure
@@ -123,6 +126,7 @@ Requires:  python3-babel
 Requires:  python3-suds >= 0.6
 Requires:  python3-eventlet
 Requires:  python3-PyYAML
+Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 
 %description -n python3-%{pkg_name}
 The Oslo project intends to produce a python library containing infrastructure
@@ -154,6 +158,12 @@ Requires: python3-oslo-i18n
 Documentation for OpenStack common VMware library.
 %endif
 
+%package  -n python-%{pkg_name}-lang
+Summary:   Translation files for Oslo vmware library
+
+%description -n python-%{pkg_name}-lang
+Translation files for Oslo vmware library
+
 %prep
 %setup -q -n %{pypi_name}-%{upstream_version}
 
@@ -167,6 +177,9 @@ export PYTHONPATH="$( pwd ):$PYTHONPATH"
 # remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 
+# Generate i18n files
+%{__python2} setup.py compile_catalog -d build/lib/oslo_vmware/locale
+
 %if 0%{?with_python3}
 %py3_build
 %endif
@@ -177,6 +190,18 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %if 0%{?with_python3}
 %py3_install
 %endif
+
+# Install i18n .mo files (.po and .pot are not required)
+install -d -m 755 %{buildroot}%{_datadir}
+rm -f %{buildroot}%{python2_sitelib}/oslo_vmware/locale/*/LC_*/oslo_vmware*po
+rm -f %{buildroot}%{python2_sitelib}/oslo_vmware/locale/*pot
+mv %{buildroot}%{python2_sitelib}/oslo_vmware/locale %{buildroot}%{_datadir}/locale
+%if 0%{?with_python3}
+rm -rf %{buildroot}%{python3_sitelib}/oslo_vmware/locale
+%endif
+
+# Find language files
+%find_lang oslo_vmware --all-name
 
 %check
 # FIXME: test fails due to suds-jurko?
@@ -200,6 +225,8 @@ rm -rf .testrepository
 
 %files -n python2-%{pkg_name}-tests
 %{python2_sitelib}/oslo_vmware/tests
+
+%files -n python-%{pkg_name}-lang -f oslo_vmware.lang
 
 %if 0%{?with_python3}
 %files -n python3-%{pkg_name}
