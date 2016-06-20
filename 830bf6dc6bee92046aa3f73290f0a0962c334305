@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a0b7d60_cfc4bd61",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 87
+      },
+      "writtenOn": "2016-06-20T15:17:04Z",
+      "side": 1,
+      "message": "trailing whitespaces, please remove. That\u0027s a good test to know if people are actually reviewing stuff :D",
+      "revId": "830bf6dc6bee92046aa3f73290f0a0962c334305",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
