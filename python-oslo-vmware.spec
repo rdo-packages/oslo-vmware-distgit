@@ -38,7 +38,6 @@ BuildRequires: python-subunit
 BuildRequires: python-testrepository
 BuildRequires: python-testscenarios
 BuildRequires: python-testtools
-BuildRequires: python-coverage
 BuildRequires: python-suds
 BuildRequires: python-oslo-utils
 BuildRequires: python-oslo-i18n
@@ -90,7 +89,6 @@ Requires: python-subunit
 Requires: python-testrepository
 Requires: python-testscenarios
 Requires: python-testtools
-Requires: python-coverage
 Requires: python-suds >= 0.6
 Requires: python-oslo-utils
 Requires: python-oslo-i18n
