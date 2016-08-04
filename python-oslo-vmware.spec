@@ -32,6 +32,7 @@ BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 # test dependencies
 BuildRequires: python-fixtures
+BuildRequires: python-lxml
 BuildRequires: python-mock
 BuildRequires: python-mox3
 BuildRequires: python-subunit
@@ -44,13 +45,19 @@ BuildRequires: python-oslo-i18n
 # Required to compile translation files
 BuildRequires:  python-babel
 
-Requires:  python-stevedore
-Requires:  python-netaddr
-Requires:  python-iso8601
-Requires:  python-six
 Requires:  python-babel
-Requires:  python-suds >= 0.6
 Requires:  python-eventlet
+Requires:  python-iso8601
+Requires:  python-lxml
+Requires:  python-netaddr
+Requires:  python-oslo-concurrency
+Requires:  python-oslo-i18n
+Requires:  python-oslo-utils
+Requires:  python-requests
+Requires:  python-six
+Requires:  python-stevedore
+Requires:  python-suds >= 0.6
+Requires:  python-urllib3
 Requires:  PyYAML
 Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 
@@ -105,6 +112,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 # test dependencies
 BuildRequires: python3-fixtures
+BuildRequires: python3-lxml
 BuildRequires: python3-mock
 BuildRequires: python3-mox3
 BuildRequires: python3-subunit
@@ -116,13 +124,19 @@ BuildRequires: python3-suds >= 0.6
 BuildRequires: python3-oslo-utils
 BuildRequires: python3-oslo-i18n
 
-Requires:  python3-stevedore
-Requires:  python3-netaddr
-Requires:  python3-iso8601
-Requires:  python3-six
 Requires:  python3-babel
-Requires:  python3-suds >= 0.6
 Requires:  python3-eventlet
+Requires:  python3-iso8601
+Requires:  python3-lxml
+Requires:  python3-netaddr
+Requires:  python3-oslo-concurrency
+Requires:  python3-oslo-i18n
+Requires:  python3-oslo-utils
+Requires:  python3-requests
+Requires:  python3-six
+Requires:  python3-stevedore
+Requires:  python3-suds >= 0.6
+Requires:  python3-urllib3
 Requires:  python3-PyYAML
 Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 
