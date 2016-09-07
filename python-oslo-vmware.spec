@@ -1,3 +1,4 @@
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name oslo.vmware
 %global pkg_name oslo-vmware
 
