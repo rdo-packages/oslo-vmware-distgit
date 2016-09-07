@@ -7,8 +7,8 @@
 %endif
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        2.14.0
+Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
 License:        ASL 2.0
@@ -256,3 +256,6 @@ rm -rf .testrepository
 %endif
 
 %changelog
+* Wed Sep 07 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.14.0-1
+- Update to 2.14.0
+
