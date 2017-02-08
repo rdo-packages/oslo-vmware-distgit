@@ -13,7 +13,7 @@ Summary:        Oslo VMware library for OpenStack projects
 
 License:        ASL 2.0
 URL:            http://launchpad.net/oslo
-Source0:        https://pypi.io/packages/source/o/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 
 BuildArch:      noarch
 
