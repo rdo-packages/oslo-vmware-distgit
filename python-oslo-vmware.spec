@@ -31,6 +31,7 @@ Summary:        Oslo VMware library for OpenStack projects
 
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
+BuildRequires:  git
 # test dependencies
 BuildRequires: python-fixtures
 BuildRequires: python-lxml
@@ -74,7 +75,7 @@ server.
 Summary:    Documentation for OpenStack common VMware library
 
 BuildRequires: python-sphinx
-BuildRequires: python-oslo-sphinx
+BuildRequires: python-openstackdocstheme
 BuildRequires: python-netaddr
 BuildRequires: python-oslo-concurrency
 BuildRequires: python-oslo-i18n
@@ -178,14 +179,14 @@ Summary:   Translation files for Oslo vmware library
 Translation files for Oslo vmware library
 
 %prep
-%setup -q -n %{pypi_name}-%{upstream_version}
+%autosetup -n %{pypi_name}-%{upstream_version} -S git
 
 %build
 %py2_build
 
 # generate html docs
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
-%{__python2} setup.py build_sphinx
+%{__python2} setup.py build_sphinx -b html
 
 # remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
