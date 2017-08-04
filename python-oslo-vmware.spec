@@ -44,20 +44,18 @@ BuildRequires: python-testtools
 BuildRequires: python-suds
 BuildRequires: python-oslo-utils
 BuildRequires: python-oslo-i18n
-# Required to compile translation files
-BuildRequires:  python-babel
+# Required to complile translation files
+BuildRequires: python-babel
 
-Requires:  python-babel
 Requires:  python-eventlet
-Requires:  python-iso8601
 Requires:  python-lxml
 Requires:  python-netaddr
-Requires:  python-oslo-concurrency
-Requires:  python-oslo-i18n
+Requires:  python-oslo-concurrency >= 3.8.0
+Requires:  python-oslo-i18n >= 2.1.0
 Requires:  python-oslo-utils
 Requires:  python-requests
 Requires:  python-six
-Requires:  python-stevedore
+Requires:  python-stevedore >= 1.20.0
 Requires:  python-suds >= 0.6
 Requires:  python-urllib3
 Requires:  PyYAML
@@ -100,7 +98,7 @@ Requires: python-testscenarios
 Requires: python-testtools
 Requires: python-suds >= 0.6
 Requires: python-oslo-utils
-Requires: python-oslo-i18n
+Requires: python-oslo-i18n >= 2.1.0
 
 %description -n python2-%{pkg_name}-tests
 Documentation for OpenStack common VMware library.
@@ -126,13 +124,11 @@ BuildRequires: python3-suds >= 0.6
 BuildRequires: python3-oslo-utils
 BuildRequires: python3-oslo-i18n
 
-Requires:  python3-babel
 Requires:  python3-eventlet
-Requires:  python3-iso8601
 Requires:  python3-lxml
 Requires:  python3-netaddr
-Requires:  python3-oslo-concurrency
-Requires:  python3-oslo-i18n
+Requires:  python3-oslo-concurrency >= 3.8.0
+Requires:  python3-oslo-i18n >= 2.1.0
 Requires:  python3-oslo-utils
 Requires:  python3-requests
 Requires:  python3-six
@@ -166,7 +162,7 @@ Requires: python3-testtools
 Requires: python3-coverage
 Requires: python3-suds
 Requires: python3-oslo-utils
-Requires: python3-oslo-i18n
+Requires: python3-oslo-i18n >= 2.1.0
 
 %description -n python3-%{pkg_name}-tests
 Documentation for OpenStack common VMware library.
