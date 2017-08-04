@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_f0541e23",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-04T10:59:58Z",
+      "side": 1,
+      "message": "We need python-babel as BuildRequires in order to compile the translation files, in line 189. You must remove it as Requires, but leave it as BuildRequires. Package is being successfully built in gate job because python-babel is being installed as dependency of python-sphinx but we must be explicit about this.",
+      "revId": "e50b149600103d2f2dc1d338fda8e994c909b539",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
