@@ -53,11 +53,11 @@ Requires:  python-iso8601
 Requires:  python-lxml
 Requires:  python-netaddr
 Requires:  python-oslo-concurrency
-Requires:  python-oslo-i18n
-Requires:  python-oslo-utils
+Requires:  python-oslo-i18n >= 2.1.0
+Requires:  python-oslo-utils >= 3.20.0
 Requires:  python-requests
 Requires:  python-six
-Requires:  python-stevedore
+Requires:  python-stevedore >= 1.20.0
 Requires:  python-suds >= 0.6
 Requires:  python-urllib3
 Requires:  PyYAML
@@ -99,8 +99,8 @@ Requires: python-testrepository
 Requires: python-testscenarios
 Requires: python-testtools
 Requires: python-suds >= 0.6
-Requires: python-oslo-utils
-Requires: python-oslo-i18n
+Requires: python-oslo-utils >= 3.20.0
+Requires: python-oslo-i18n >= 2.1.0
 
 %description -n python2-%{pkg_name}-tests
 Documentation for OpenStack common VMware library.
