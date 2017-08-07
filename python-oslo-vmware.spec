@@ -185,7 +185,6 @@ Translation files for Oslo vmware library
 %py2_build
 
 # generate html docs
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
 %{__python2} setup.py build_sphinx -b html
 
 # remove the sphinx-build leftovers
