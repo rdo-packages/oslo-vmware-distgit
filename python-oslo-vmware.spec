@@ -7,8 +7,8 @@
 %endif
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        2.23.0
+Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
 License:        ASL 2.0
@@ -74,6 +74,7 @@ Summary:    Documentation for OpenStack common VMware library
 
 BuildRequires: python-sphinx
 BuildRequires: python-openstackdocstheme
+BuildRequires: python-eventlet
 BuildRequires: python-netaddr
 BuildRequires: python-oslo-concurrency
 BuildRequires: python-oslo-i18n
@@ -253,3 +254,6 @@ rm -rf .testrepository
 %endif
 
 %changelog
+* Thu Aug 17 2017 Alfredo Moralejo <amoralej@redhat.com> 2.23.0-1
+- Update to 2.23.0
+
