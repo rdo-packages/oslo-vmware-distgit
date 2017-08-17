@@ -74,6 +74,7 @@ Summary:    Documentation for OpenStack common VMware library
 
 BuildRequires: python-sphinx
 BuildRequires: python-openstackdocstheme
+BuildRequires: python-eventlet
 BuildRequires: python-netaddr
 BuildRequires: python-oslo-concurrency
 BuildRequires: python-oslo-i18n
