@@ -1,6 +1,15 @@
+
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name oslo.vmware
 %global pkg_name oslo-vmware
+%global common_desc \
+The Oslo project intends to produce a python library containing infrastructure \
+code shared by OpenStack projects. The APIs provided by the project should be \
+high quality, stable, consistent and generally useful.
+
+%global common_desc1 \
+Documentation for OpenStack common VMware library.
+
 
 %if 0%{?fedora} >= 24
 %global with_python3 1
@@ -18,9 +27,7 @@ Source0:        https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstr
 BuildArch:      noarch
 
 %description
-The Oslo project intends to produce a python library containing infrastructure
-code shared by OpenStack projects. The APIs provided by the project should be
-high quality, stable, consistent and generally useful.
+%{common_desc}
 
 The Oslo VMware library offers session and API call management for VMware ESX/VC
 server.
@@ -62,9 +69,7 @@ Requires:  PyYAML
 Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 
 %description -n python2-%{pkg_name}
-The Oslo project intends to produce a python library containing infrastructure
-code shared by OpenStack projects. The APIs provided by the project should be
-high quality, stable, consistent and generally useful.
+%{common_desc}
 
 The Oslo VMware library offers session and API call management for VMware ESX/VC
 server.
@@ -83,7 +88,7 @@ BuildRequires: python-suds
 
 
 %description -n python-%{pkg_name}-doc
-Documentation for OpenStack common VMware library.
+%{common_desc1}
 
 %package -n python2-%{pkg_name}-tests
 Summary:    Test subpackage for OpenStack common VMware library
@@ -101,7 +106,7 @@ Requires: python-oslo-utils
 Requires: python-oslo-i18n >= 2.1.0
 
 %description -n python2-%{pkg_name}-tests
-Documentation for OpenStack common VMware library.
+%{common_desc1}
 
 %if 0%{?with_python3}
 %package -n python3-%{pkg_name}
@@ -139,9 +144,7 @@ Requires:  python3-PyYAML
 Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 
 %description -n python3-%{pkg_name}
-The Oslo project intends to produce a python library containing infrastructure
-code shared by OpenStack projects. The APIs provided by the project should be
-high quality, stable, consistent and generally useful.
+%{common_desc}
 
 The Oslo VMware library offers session and API call management for VMware ESX/VC
 server.
@@ -165,7 +168,7 @@ Requires: python3-oslo-utils
 Requires: python3-oslo-i18n >= 2.1.0
 
 %description -n python3-%{pkg_name}-tests
-Documentation for OpenStack common VMware library.
+%{common_desc1}
 %endif
 
 %package  -n python-%{pkg_name}-lang
