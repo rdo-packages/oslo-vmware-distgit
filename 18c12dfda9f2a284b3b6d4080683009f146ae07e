@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_280b69d7",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-09-04T11:31:16Z",
+      "side": 1,
+      "message": "Hello, I think you need another global desc as these are tests, not documentation",
+      "revId": "18c12dfda9f2a284b3b6d4080683009f146ae07e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
