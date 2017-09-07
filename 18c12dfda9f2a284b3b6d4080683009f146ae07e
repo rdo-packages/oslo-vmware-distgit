@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a890539_885b7853",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2017-09-07T11:41:45Z",
+      "side": 1,
+      "message": "Might just want to unwrap this back to not extracted.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 50
+      },
+      "revId": "18c12dfda9f2a284b3b6d4080683009f146ae07e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_685e4c47",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2017-09-07T11:41:45Z",
+      "side": 1,
+      "message": "While correct this should be Tests it was a copy/paste/pasta mistake.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 15
+      },
+      "revId": "18c12dfda9f2a284b3b6d4080683009f146ae07e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a890539_280b69d7",
         "filename": "python-oslo-vmware.spec",
         "patchSetId": 1
@@ -13,6 +59,24 @@
       "writtenOn": "2017-09-04T11:31:16Z",
       "side": 1,
       "message": "Hello, I think you need another global desc as these are tests, not documentation",
+      "revId": "18c12dfda9f2a284b3b6d4080683009f146ae07e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_a8583457",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2017-09-07T11:41:45Z",
+      "side": 1,
+      "message": "Another case of tests where it was copy/paste/pasta",
+      "parentUuid": "5a890539_280b69d7",
       "revId": "18c12dfda9f2a284b3b6d4080683009f146ae07e",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
