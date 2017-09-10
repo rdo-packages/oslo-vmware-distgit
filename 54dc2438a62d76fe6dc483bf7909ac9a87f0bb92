@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a961159_acf40388",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-09-10T10:06:14Z",
+      "side": 1,
+      "message": "thanks for these changes! Small nit pick, should be Tests, not Test",
+      "revId": "54dc2438a62d76fe6dc483bf7909ac9a87f0bb92",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
