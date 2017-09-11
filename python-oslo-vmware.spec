@@ -33,6 +33,7 @@ BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 BuildRequires:  git
 # test dependencies
+BuildRequires: python-ddt
 BuildRequires: python-fixtures
 BuildRequires: python-lxml
 BuildRequires: python-mock
@@ -111,6 +112,7 @@ Summary:        Oslo VMware library for OpenStack projects
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 # test dependencies
+BuildRequires: python3-ddt
 BuildRequires: python3-fixtures
 BuildRequires: python3-lxml
 BuildRequires: python3-mock
@@ -213,12 +215,10 @@ rm -rf %{buildroot}%{python3_sitelib}/oslo_vmware/locale
 %find_lang oslo_vmware --all-name
 
 %check
-# FIXME: test fails due to suds-jurko?
-%{__python2} setup.py test ||:
+%{__python2} setup.py test
 %if 0%{?with_python3}
 rm -rf .testrepository
-# FIXME: test fails due to suds-jurko?
-%{__python3} setup.py test ||
+%{__python3} setup.py test
 %endif
 
 %files -n python2-%{pkg_name}
