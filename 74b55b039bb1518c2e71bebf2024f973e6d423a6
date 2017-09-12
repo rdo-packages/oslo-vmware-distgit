@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a961159_526ed4ca",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-09-12T07:59:50Z",
+      "side": 1,
+      "message": "This line needs to go as its been moved up to main description",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 7
+      },
+      "revId": "74b55b039bb1518c2e71bebf2024f973e6d423a6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a961159_32794894",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-09-12T07:59:50Z",
+      "side": 1,
+      "message": "this line needs to go as its been moved up to main description",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 7
+      },
+      "revId": "74b55b039bb1518c2e71bebf2024f973e6d423a6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
