@@ -1,11 +1,14 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name oslo.vmware
 %global pkg_name oslo-vmware
+
 %global common_desc \
 The Oslo project intends to produce a python library containing infrastructure \
 code shared by OpenStack projects. The APIs provided by the project should be \
 high quality, stable, consistent and generally useful. \
 The Oslo VMware library provides support for common VMware operations and APIs.
+
+%global with_doc 1
 
 %if 0%{?fedora} >= 24
 %global with_python3 1
@@ -65,6 +68,7 @@ Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 %description -n python2-%{pkg_name}
 %{common_desc}
 
+%if 0%{?with_doc}
 %package -n python-%{pkg_name}-doc
 Summary:    Documentation for OpenStack common VMware library
 
@@ -81,6 +85,7 @@ BuildRequires: python-suds
 
 %description -n python-%{pkg_name}-doc
 Documentation for OpenStack common VMware library.
+%endif
 
 %package -n python2-%{pkg_name}-tests
 Summary:    Test subpackage for OpenStack common VMware library
@@ -176,11 +181,13 @@ Translation files for Oslo vmware library
 %build
 %py2_build
 
+%if 0%{?with_doc}
 # generate html docs
 %{__python2} setup.py build_sphinx -b html
 
 # remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
+%endif
 
 # Generate i18n files
 %{__python2} setup.py compile_catalog -d build/lib/oslo_vmware/locale
@@ -222,9 +229,11 @@ rm -rf .testrepository
 %{python2_sitelib}/*.egg-info
 %exclude %{python2_sitelib}/oslo_vmware/tests
 
+%if 0%{?with_doc}
 %files -n python-%{pkg_name}-doc
 %doc doc/build/html
 %license LICENSE
+%endif
 
 %files -n python2-%{pkg_name}-tests
 %{python2_sitelib}/oslo_vmware/tests
