@@ -7,7 +7,7 @@
 %endif
 
 Name:           python-%{pkg_name}
-Version:        2.23.0
+Version:        2.23.1
 Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
@@ -254,6 +254,9 @@ rm -rf .testrepository
 %endif
 
 %changelog
+* Wed Nov 22 2017 RDO <dev@lists.rdoproject.org> 2.23.1-1
+- Update to 2.23.1
+
 * Thu Aug 17 2017 Alfredo Moralejo <amoralej@redhat.com> 2.23.0-1
 - Update to 2.23.0
 
