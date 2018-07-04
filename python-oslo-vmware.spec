@@ -54,7 +54,7 @@ BuildRequires: python-testrepository
 BuildRequires: python-testscenarios
 %endif
 
-Requires:  python2-eventlet
+Requires:  python2-eventlet >= 0.20.1-2
 Requires:  python2-oslo-concurrency >= 3.25.0
 Requires:  python2-oslo-i18n >= 3.15.3
 Requires:  python2-oslo-utils
@@ -82,7 +82,7 @@ Summary:    Documentation for OpenStack common VMware library
 
 BuildRequires: python2-sphinx
 BuildRequires: python2-openstackdocstheme
-BuildRequires: python2-eventlet
+BuildRequires: python2-eventlet >= 0.20.1-2
 BuildRequires: python2-oslo-concurrency
 BuildRequires: python2-oslo-i18n
 BuildRequires: python2-oslo-utils
@@ -143,7 +143,7 @@ BuildRequires: python3-suds >= 0.6
 BuildRequires: python3-oslo-utils
 BuildRequires: python3-oslo-i18n
 
-Requires:  python3-eventlet
+Requires:  python3-eventlet >= 0.20.1-2
 Requires:  python3-lxml
 Requires:  python3-netaddr
 Requires:  python3-oslo-concurrency >= 3.25.0
@@ -193,6 +193,9 @@ Translation files for Oslo vmware library
 
 %prep
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
+# FIXME(hguemar): requirements blocks 0.20.1 due to lp#1696094
+# but eventlet 0.20.1-2 package has backported the fix
+sed -i '/eventlet/s/!=0.20.1,//' requirements.txt
 
 %build
 %py2_build
@@ -268,3 +271,4 @@ rm -rf .testrepository
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/oslo.vmware/commit/?id=d1cfde2b6de415a076e5b712588a8b0612631671
