@@ -37,6 +37,7 @@ BuildRequires: python2-ddt
 BuildRequires: python2-fixtures
 BuildRequires: python2-mock
 BuildRequires: python2-mox3
+BuildRequires: python2-stestr
 BuildRequires: python2-subunit
 BuildRequires: python2-testtools
 BuildRequires: python2-suds
@@ -54,7 +55,7 @@ BuildRequires: python-testrepository
 BuildRequires: python-testscenarios
 %endif
 
-Requires:  python2-eventlet
+Requires:  python2-eventlet >= 0.20.1-2
 Requires:  python2-oslo-concurrency >= 3.25.0
 Requires:  python2-oslo-i18n >= 3.15.3
 Requires:  python2-oslo-utils
@@ -82,7 +83,7 @@ Summary:    Documentation for OpenStack common VMware library
 
 BuildRequires: python2-sphinx
 BuildRequires: python2-openstackdocstheme
-BuildRequires: python2-eventlet
+BuildRequires: python2-eventlet >= 0.20.1-2
 BuildRequires: python2-oslo-concurrency
 BuildRequires: python2-oslo-i18n
 BuildRequires: python2-oslo-utils
@@ -134,6 +135,7 @@ BuildRequires: python3-fixtures
 BuildRequires: python3-lxml
 BuildRequires: python3-mock
 BuildRequires: python3-mox3
+BuildRequires: python3-stestr
 BuildRequires: python3-subunit
 BuildRequires: python3-testrepository
 BuildRequires: python3-testscenarios
@@ -143,7 +145,7 @@ BuildRequires: python3-suds >= 0.6
 BuildRequires: python3-oslo-utils
 BuildRequires: python3-oslo-i18n
 
-Requires:  python3-eventlet
+Requires:  python3-eventlet >= 0.20.1-2
 Requires:  python3-lxml
 Requires:  python3-netaddr
 Requires:  python3-oslo-concurrency >= 3.25.0
@@ -193,6 +195,11 @@ Translation files for Oslo vmware library
 
 %prep
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
+# FIXME(hguemar): requirements blocks 0.20.1 due to lp#1696094
+# but eventlet 0.20.1-2 package has backported the fix
+sed -i '/eventlet/s/!=0.20.1,//' requirements.txt
+# FIXME(hguemar): we use system lxml from EL7
+sed -i '/lxml/s/,>=3.4.1//' requirements.txt
 
 %build
 %py2_build
@@ -230,10 +237,10 @@ rm -rf %{buildroot}%{python3_sitelib}/oslo_vmware/locale
 %find_lang oslo_vmware --all-name
 
 %check
-%{__python2} setup.py test
+export OS_TEST_PATH="./oslo_vmware/tests"
+stestr --test-path $OS_TEST_PATH run
 %if 0%{?with_python3}
-rm -rf .testrepository
-%{__python3} setup.py test
+stestr-3 --test-path $OS_TEST_PATH run
 %endif
 
 %files -n python2-%{pkg_name}
