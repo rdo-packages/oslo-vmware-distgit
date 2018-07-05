@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bab921fb_cfee1322",
+        "filename": "python-oslo-vmware.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-07-05T10:39:35Z",
+      "side": 1,
+      "message": "Could this be \u003e\u003d 0.20.1-1 ? That\u0027s the version we have in the Fedora stable repos.",
+      "revId": "903ff52d836302e4400a5644292d72a9fbdb862b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
