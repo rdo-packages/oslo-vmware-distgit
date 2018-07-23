@@ -55,8 +55,9 @@ BuildRequires: python-testrepository
 BuildRequires: python-testscenarios
 %endif
 
+Requires:  python2-pbr
 Requires:  python2-eventlet
-Requires:  python2-oslo-concurrency >= 3.25.0
+Requires:  python2-oslo-concurrency >= 3.26.0
 Requires:  python2-oslo-i18n >= 3.15.3
 Requires:  python2-oslo-utils
 Requires:  python2-requests
@@ -145,10 +146,11 @@ BuildRequires: python3-suds >= 0.6
 BuildRequires: python3-oslo-utils
 BuildRequires: python3-oslo-i18n
 
+Requires:  python3-pbr
 Requires:  python3-eventlet
 Requires:  python3-lxml
 Requires:  python3-netaddr
-Requires:  python3-oslo-concurrency >= 3.25.0
+Requires:  python3-oslo-concurrency >= 3.26.0
 Requires:  python3-oslo-i18n >= 3.15.3
 Requires:  python3-oslo-utils
 Requires:  python3-requests
