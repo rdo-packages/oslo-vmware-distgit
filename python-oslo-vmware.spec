@@ -132,10 +132,15 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 # test dependencies
 BuildRequires: python3-ddt
+BuildRequires: python3-eventlet
 BuildRequires: python3-fixtures
 BuildRequires: python3-lxml
 BuildRequires: python3-mock
 BuildRequires: python3-mox3
+BuildRequires: python3-oslo-concurrency
+BuildRequires: python3-oslo-i18n
+BuildRequires: python3-oslo-utils
+BuildRequires: python3-requests
 BuildRequires: python3-stestr
 BuildRequires: python3-subunit
 BuildRequires: python3-testrepository
