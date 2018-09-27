@@ -41,6 +41,7 @@ BuildRequires: python2-stestr
 BuildRequires: python2-subunit
 BuildRequires: python2-testtools
 BuildRequires: python2-suds
+BuildRequires: python2-oslo-context
 BuildRequires: python2-oslo-utils
 BuildRequires: python2-oslo-i18n
 # Required to compile translation files
@@ -58,6 +59,7 @@ BuildRequires: python-testscenarios
 Requires:  python2-pbr
 Requires:  python2-eventlet
 Requires:  python2-oslo-concurrency >= 3.26.0
+Requires:  python2-oslo-context >= 2.19.2
 Requires:  python2-oslo-i18n >= 3.15.3
 Requires:  python2-oslo-utils
 Requires:  python2-requests
@@ -110,6 +112,7 @@ Requires: python2-mox3
 Requires: python2-subunit
 Requires: python2-testtools
 Requires: python2-suds >= 0.6
+Requires: python2-oslo-context
 Requires: python2-oslo-utils
 Requires: python2-oslo-i18n >= 3.15.3
 %if 0%{?fedora} > 0
@@ -137,6 +140,7 @@ BuildRequires: python3-fixtures
 BuildRequires: python3-lxml
 BuildRequires: python3-mock
 BuildRequires: python3-mox3
+BuildRequires: python3-oslo-context
 BuildRequires: python3-oslo-concurrency
 BuildRequires: python3-oslo-i18n
 BuildRequires: python3-oslo-utils
@@ -155,6 +159,7 @@ Requires:  python3-pbr
 Requires:  python3-eventlet
 Requires:  python3-lxml
 Requires:  python3-netaddr
+Requires:  python3-oslo-context >= 2.19.2
 Requires:  python3-oslo-concurrency >= 3.26.0
 Requires:  python3-oslo-i18n >= 3.15.3
 Requires:  python3-oslo-utils
