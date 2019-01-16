@@ -12,6 +12,9 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name oslo.vmware
 %global pkg_name oslo-vmware
+
+%global with_doc 1
+
 %global common_desc \
 The Oslo project intends to produce a python library containing infrastructure \
 code shared by OpenStack projects. The APIs provided by the project should be \
@@ -48,6 +51,7 @@ BuildRequires: python%{pyver}-stestr
 BuildRequires: python%{pyver}-subunit
 BuildRequires: python%{pyver}-testtools
 BuildRequires: python%{pyver}-suds
+BuildRequires: python%{pyver}-oslo-concurrency
 BuildRequires: python%{pyver}-oslo-context
 BuildRequires: python%{pyver}-oslo-utils
 BuildRequires: python%{pyver}-oslo-i18n
@@ -88,13 +92,13 @@ Requires:  python%{pyver}-PyYAML
 %description -n python%{pyver}-%{pkg_name}
 %{common_desc}
 
+%if 0%{?with_doc}
 %package -n python-%{pkg_name}-doc
 Summary:    Documentation for OpenStack common VMware library
 
 BuildRequires: python%{pyver}-sphinx
 BuildRequires: python%{pyver}-openstackdocstheme
 BuildRequires: python%{pyver}-eventlet
-BuildRequires: python%{pyver}-oslo-concurrency
 BuildRequires: python%{pyver}-oslo-i18n
 BuildRequires: python%{pyver}-oslo-utils
 BuildRequires: python%{pyver}-requests >= 2.14.2
@@ -104,6 +108,7 @@ BuildRequires: python%{pyver}-netaddr
 
 %description -n python-%{pkg_name}-doc
 Documentation for OpenStack common VMware library.
+%endif
 
 %package -n python%{pyver}-%{pkg_name}-tests
 Summary:    Test subpackage for OpenStack common VMware library
@@ -140,11 +145,13 @@ sed -i '/lxml/s/,>=3.4.1//' requirements.txt
 %build
 %{pyver_build}
 
+%if 0%{?with_doc}
 # generate html docs
 %{pyver_bin} setup.py build_sphinx -b html
 
 # remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
+%endif
 
 # Generate i18n files
 %{pyver_bin} setup.py compile_catalog -d build/lib/oslo_vmware/locale
@@ -172,9 +179,11 @@ stestr-%{pyver} --test-path $OS_TEST_PATH run
 %{pyver_sitelib}/*.egg-info
 %exclude %{pyver_sitelib}/oslo_vmware/tests
 
+%if 0%{?with_doc}
 %files -n python-%{pkg_name}-doc
 %doc doc/build/html
 %license LICENSE
+%endif
 
 %files -n python%{pyver}-%{pkg_name}-tests
 %{pyver_sitelib}/oslo_vmware/tests
