@@ -55,6 +55,12 @@ BuildRequires: python%{pyver}-oslo-concurrency
 BuildRequires: python%{pyver}-oslo-context
 BuildRequires: python%{pyver}-oslo-utils
 BuildRequires: python%{pyver}-oslo-i18n
+BuildRequires: python%{pyver}-eventlet
+BuildRequires: python%{pyver}-oslo-i18n
+BuildRequires: python%{pyver}-oslo-utils
+BuildRequires: python%{pyver}-requests >= 2.14.2
+BuildRequires: python%{pyver}-suds
+BuildRequires: python%{pyver}-netaddr
 # Required to compile translation files
 BuildRequires: python%{pyver}-testscenarios
 BuildRequires: python%{pyver}-babel
@@ -98,13 +104,6 @@ Summary:    Documentation for OpenStack common VMware library
 
 BuildRequires: python%{pyver}-sphinx
 BuildRequires: python%{pyver}-openstackdocstheme
-BuildRequires: python%{pyver}-eventlet
-BuildRequires: python%{pyver}-oslo-i18n
-BuildRequires: python%{pyver}-oslo-utils
-BuildRequires: python%{pyver}-requests >= 2.14.2
-BuildRequires: python%{pyver}-suds
-BuildRequires: python%{pyver}-netaddr
-
 
 %description -n python-%{pkg_name}-doc
 Documentation for OpenStack common VMware library.
