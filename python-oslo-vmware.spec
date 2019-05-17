@@ -169,7 +169,7 @@ mv %{buildroot}%{pyver_sitelib}/oslo_vmware/locale %{buildroot}%{_datadir}/local
 
 %check
 export OS_TEST_PATH="./oslo_vmware/tests"
-stestr-%{pyver} --test-path $OS_TEST_PATH run
+PYTHON=%{pyver_bin} stestr-%{pyver} --test-path $OS_TEST_PATH run
 
 %files -n python%{pyver}-%{pkg_name}
 %doc README.rst
