@@ -79,7 +79,6 @@ Requires:  python%{pyver}-oslo-context >= 2.19.2
 Requires:  python%{pyver}-oslo-i18n >= 3.15.3
 Requires:  python%{pyver}-oslo-utils
 Requires:  python%{pyver}-requests
-Requires:  python%{pyver}-six
 Requires:  python%{pyver}-stevedore >= 1.20.0
 Requires:  python%{pyver}-suds >= 0.6
 Requires:  python%{pyver}-urllib3
