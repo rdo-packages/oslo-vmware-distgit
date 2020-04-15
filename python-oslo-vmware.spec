@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name oslo.vmware
 %global pkg_name oslo-vmware
@@ -35,96 +24,85 @@ BuildArch:      noarch
 %description
 %{common_desc}
 
-%package -n python%{pyver}-%{pkg_name}
+%package -n python3-%{pkg_name}
 Summary:        Oslo VMware library for OpenStack projects
-%{?python_provide:%python_provide python%{pyver}-%{pkg_name}}
+%{?python_provide:%python_provide python3-%{pkg_name}}
 
-BuildRequires:  python%{pyver}-devel
-BuildRequires:  python%{pyver}-pbr
+BuildRequires:  python3-devel
+BuildRequires:  python3-pbr
 BuildRequires:  git
 # test dependencies
-BuildRequires: python%{pyver}-ddt
-BuildRequires: python%{pyver}-fixtures
-BuildRequires: python%{pyver}-mock
-BuildRequires: python%{pyver}-mox3
-BuildRequires: python%{pyver}-stestr
-BuildRequires: python%{pyver}-subunit
-BuildRequires: python%{pyver}-testtools
-BuildRequires: python%{pyver}-suds
-BuildRequires: python%{pyver}-oslo-concurrency
-BuildRequires: python%{pyver}-oslo-context
-BuildRequires: python%{pyver}-oslo-utils
-BuildRequires: python%{pyver}-oslo-i18n
-BuildRequires: python%{pyver}-eventlet
-BuildRequires: python%{pyver}-oslo-i18n
-BuildRequires: python%{pyver}-oslo-utils
-BuildRequires: python%{pyver}-requests >= 2.14.2
-BuildRequires: python%{pyver}-suds
-BuildRequires: python%{pyver}-netaddr
+BuildRequires: python3-ddt
+BuildRequires: python3-fixtures
+BuildRequires: python3-mock
+BuildRequires: python3-mox3
+BuildRequires: python3-stestr
+BuildRequires: python3-subunit
+BuildRequires: python3-testtools
+BuildRequires: python3-suds
+BuildRequires: python3-oslo-concurrency
+BuildRequires: python3-oslo-context
+BuildRequires: python3-oslo-utils
+BuildRequires: python3-oslo-i18n
+BuildRequires: python3-eventlet
+BuildRequires: python3-oslo-i18n
+BuildRequires: python3-oslo-utils
+BuildRequires: python3-requests >= 2.14.2
+BuildRequires: python3-suds
+BuildRequires: python3-netaddr
 # Required to compile translation files
-BuildRequires: python%{pyver}-testscenarios
-BuildRequires: python%{pyver}-babel
+BuildRequires: python3-testscenarios
+BuildRequires: python3-babel
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires: python-lxml
-%else
-BuildRequires: python%{pyver}-lxml
-%endif
+BuildRequires: python3-lxml
 
-Requires:  python%{pyver}-pbr
-Requires:  python%{pyver}-eventlet
-Requires:  python%{pyver}-oslo-concurrency >= 3.26.0
-Requires:  python%{pyver}-oslo-context >= 2.19.2
-Requires:  python%{pyver}-oslo-i18n >= 3.15.3
-Requires:  python%{pyver}-oslo-utils
-Requires:  python%{pyver}-requests
-Requires:  python%{pyver}-stevedore >= 1.20.0
-Requires:  python%{pyver}-suds >= 0.6
-Requires:  python%{pyver}-urllib3
-Requires:  python%{pyver}-netaddr
+Requires:  python3-pbr
+Requires:  python3-eventlet
+Requires:  python3-oslo-concurrency >= 3.26.0
+Requires:  python3-oslo-context >= 2.19.2
+Requires:  python3-oslo-i18n >= 3.15.3
+Requires:  python3-oslo-utils
+Requires:  python3-requests
+Requires:  python3-stevedore >= 1.20.0
+Requires:  python3-suds >= 0.6
+Requires:  python3-urllib3
+Requires:  python3-netaddr
 Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:  python-lxml
-Requires:  PyYAML
-%else
-Requires:  python%{pyver}-lxml
-Requires:  python%{pyver}-PyYAML
-%endif
+Requires:  python3-lxml
+Requires:  python3-PyYAML
 
-%description -n python%{pyver}-%{pkg_name}
+%description -n python3-%{pkg_name}
 %{common_desc}
 
 %if 0%{?with_doc}
 %package -n python-%{pkg_name}-doc
 Summary:    Documentation for OpenStack common VMware library
 
-BuildRequires: python%{pyver}-sphinx
-BuildRequires: python%{pyver}-sphinxcontrib-apidoc
-BuildRequires: python%{pyver}-openstackdocstheme
+BuildRequires: python3-sphinx
+BuildRequires: python3-sphinxcontrib-apidoc
+BuildRequires: python3-openstackdocstheme
 
 %description -n python-%{pkg_name}-doc
 Documentation for OpenStack common VMware library.
 %endif
 
-%package -n python%{pyver}-%{pkg_name}-tests
+%package -n python3-%{pkg_name}-tests
 Summary:    Test subpackage for OpenStack common VMware library
 
-Requires: python%{pyver}-%{pkg_name} = %{version}-%{release}
-Requires: python%{pyver}-fixtures
-Requires: python%{pyver}-mock
-Requires: python%{pyver}-mox3
-Requires: python%{pyver}-subunit
-Requires: python%{pyver}-testtools
-Requires: python%{pyver}-suds >= 0.6
-Requires: python%{pyver}-oslo-context
-Requires: python%{pyver}-oslo-utils
-Requires: python%{pyver}-oslo-i18n >= 3.15.3
-Requires: python%{pyver}-testscenarios
+Requires: python3-%{pkg_name} = %{version}-%{release}
+Requires: python3-fixtures
+Requires: python3-mock
+Requires: python3-mox3
+Requires: python3-subunit
+Requires: python3-testtools
+Requires: python3-suds >= 0.6
+Requires: python3-oslo-context
+Requires: python3-oslo-utils
+Requires: python3-oslo-i18n >= 3.15.3
+Requires: python3-testscenarios
 
-%description -n python%{pyver}-%{pkg_name}-tests
+%description -n python3-%{pkg_name}-tests
 Tests for OpenStack common VMware library.
 
 %package  -n python-%{pkg_name}-lang
@@ -142,27 +120,27 @@ sed -i '/eventlet/s/!=0.20.1,//' requirements.txt
 sed -i '/lxml/s/,>=3.4.1//' requirements.txt
 
 %build
-%{pyver_build}
+%{py3_build}
 
 %if 0%{?with_doc}
 # generate html docs
-sphinx-build-%{pyver} -b html doc/source doc/build/html
+sphinx-build-3 -b html doc/source doc/build/html
 
-# remove the sphinx-build-%{pyver} leftovers
+# remove the sphinx-build-3 leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 # Generate i18n files
-%{pyver_bin} setup.py compile_catalog -d build/lib/oslo_vmware/locale
+python3 setup.py compile_catalog -d build/lib/oslo_vmware/locale
 
 %install
-%{pyver_install}
+%{py3_install}
 
 # Install i18n .mo files (.po and .pot are not required)
 install -d -m 755 %{buildroot}%{_datadir}
-rm -f %{buildroot}%{pyver_sitelib}/oslo_vmware/locale/*/LC_*/oslo_vmware*po
-rm -f %{buildroot}%{pyver_sitelib}/oslo_vmware/locale/*pot
-mv %{buildroot}%{pyver_sitelib}/oslo_vmware/locale %{buildroot}%{_datadir}/locale
+rm -f %{buildroot}%{python3_sitelib}/oslo_vmware/locale/*/LC_*/oslo_vmware*po
+rm -f %{buildroot}%{python3_sitelib}/oslo_vmware/locale/*pot
+mv %{buildroot}%{python3_sitelib}/oslo_vmware/locale %{buildroot}%{_datadir}/locale
 
 # Find language files
 %find_lang oslo_vmware --all-name
@@ -170,14 +148,14 @@ mv %{buildroot}%{pyver_sitelib}/oslo_vmware/locale %{buildroot}%{_datadir}/local
 %check
 rm -f ./oslo_vmware/tests/test_hacking.py
 export OS_TEST_PATH="./oslo_vmware/tests"
-PYTHON=%{pyver_bin} stestr-%{pyver} --test-path $OS_TEST_PATH run
+PYTHON=python3 stestr-3 --test-path $OS_TEST_PATH run
 
-%files -n python%{pyver}-%{pkg_name}
+%files -n python3-%{pkg_name}
 %doc README.rst
 %license LICENSE
-%{pyver_sitelib}/oslo_vmware
-%{pyver_sitelib}/*.egg-info
-%exclude %{pyver_sitelib}/oslo_vmware/tests
+%{python3_sitelib}/oslo_vmware
+%{python3_sitelib}/*.egg-info
+%exclude %{python3_sitelib}/oslo_vmware/tests
 
 %if 0%{?with_doc}
 %files -n python-%{pkg_name}-doc
@@ -185,8 +163,8 @@ PYTHON=%{pyver_bin} stestr-%{pyver} --test-path $OS_TEST_PATH run
 %license LICENSE
 %endif
 
-%files -n python%{pyver}-%{pkg_name}-tests
-%{pyver_sitelib}/oslo_vmware/tests
+%files -n python3-%{pkg_name}-tests
+%{python3_sitelib}/oslo_vmware/tests
 
 %files -n python-%{pkg_name}-lang -f oslo_vmware.lang
 %license LICENSE
