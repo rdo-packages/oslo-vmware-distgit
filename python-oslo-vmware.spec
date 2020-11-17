@@ -43,7 +43,7 @@ Summary:        Oslo VMware library for OpenStack projects
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
-BuildRequires:  git
+BuildRequires:  git-core
 # test dependencies
 BuildRequires: python3-ddt
 BuildRequires: python3-fixtures
