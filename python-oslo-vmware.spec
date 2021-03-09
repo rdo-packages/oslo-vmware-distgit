@@ -83,7 +83,7 @@ Requires:  python3-netaddr
 Requires:  python-%{pkg_name}-lang = %{version}-%{release}
 
 Requires:  python3-lxml
-Requires:  python3-PyYAML
+Requires:  python3-yaml >= 3.13
 
 %description -n python3-%{pkg_name}
 %{common_desc}
