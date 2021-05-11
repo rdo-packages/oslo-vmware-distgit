@@ -135,6 +135,10 @@ Translation files for Oslo vmware library
 sed -i '/eventlet/s/!=0.20.1,//' requirements.txt
 # FIXME(hguemar): we use system lxml from EL7
 sed -i '/lxml/s/,>=3.4.1//' requirements.txt
+# We are managing BR on python3-suds manually. suds have two different
+# forks suds and suds-jurko. CentOS>8 is moving to suds instead of
+# suds jurko
+sed -i '/^suds-jurko.*/d' requirements.txt
 
 %build
 %{py3_build}
