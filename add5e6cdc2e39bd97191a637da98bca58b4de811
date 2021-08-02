@@ -1,0 +1,9 @@
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Code-Review+2: Yatin Karel <ykarel@redhat.com>
+Workflow+1: Yatin Karel <ykarel@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 02 Aug 2021 14:36:26 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/oslo-vmware-distgit/+/34798
+Project: openstack/oslo-vmware-distgit
+Branch: refs/heads/wallaby-rdo
