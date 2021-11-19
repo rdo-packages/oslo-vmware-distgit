@@ -1,0 +1,71 @@
+From 2a22679b2bf80d47519fa5dc99659501933d7037 Mon Sep 17 00:00:00 2001
+From: Stephen Finucane <stephenfin@redhat.com>
+Date: Tue, 21 Sep 2021 15:41:58 +0100
+Subject: [PATCH] Don't use 'requests.PreparedRequest'
+
+We're using 'requests.PreparedRequest' in one place in the tests.
+However, the requests docs have a warning that one shouldn't do this:
+
+  Instances are generated from a Request object, and should not be
+  instantiated manually; doing so may produce undesirable effects.
+
+It seems we're now seeing just such an effect, as requests has started
+attempting to do proxy-related things resulting in the following error:
+
+    Traceback (most recent call last):
+      File "/usr/lib64/python3.6/unittest/mock.py", line 1183, in patched
+    return func(*args, **keywargs)
+      File ".../oslo.vmware/oslo_vmware/tests/test_service.py", line 518, in test_send_with_local_file_url
+    resp = transport.session.send(request)
+      File ".../oslo.vmware/.tox/py36/lib/python3.6/site-packages/requests/sessions.py", line 636, in send
+    kwargs.setdefault('proxies', self.rebuild_proxies(request, self.proxies))
+      File ".../oslo.vmware/.tox/py36/lib/python3.6/site-packages/requests/sessions.py", line 301, in rebuild_proxies
+    if 'Proxy-Authorization' in headers:
+    TypeError: argument of type 'NoneType' is not iterable
+
+Do what we should have done from the beginning and use
+'requests.Request.prepare' instead.
+
+[1] https://docs.python-requests.org/en/master/api/#requests.PreparedRequest
+
+Change-Id: I072c64904298cf83cb113e402d85fb62626f39f7
+Signed-off-by: Stephen Finucane <stephenfin@redhat.com>
+(cherry picked from commit e991194cbd82925c8bac43cb979f9262a49850e6)
+---
+ oslo_vmware/tests/test_service.py | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/oslo_vmware/tests/test_service.py b/oslo_vmware/tests/test_service.py
+index b03c3ff..29f7286 100644
+--- a/oslo_vmware/tests/test_service.py
++++ b/oslo_vmware/tests/test_service.py
+@@ -493,8 +493,7 @@ class RequestsTransportTest(base.TestCase):
+         transport = service.RequestsTransport()
+ 
+         url = 'file:///foo'
+-        request = requests.PreparedRequest()
+-        request.url = url
++        request = requests.Request('GET', url).prepare()
+ 
+         data = b"Hello World"
+         get_size_mock.return_value = len(data)
+@@ -502,7 +501,6 @@ class RequestsTransportTest(base.TestCase):
+         def read_mock():
+             return data
+ 
+-        builtin_open = 'builtins.open'
+         open_mock = mock.MagicMock(name='file_handle',
+                                    spec=open)
+         file_spec = list(set(dir(io.TextIOWrapper)).union(
+@@ -514,7 +512,7 @@ class RequestsTransportTest(base.TestCase):
+         file_handle.read.side_effect = read_mock
+         open_mock.return_value = file_handle
+ 
+-        with mock.patch(builtin_open, open_mock, create=True):
++        with mock.patch('builtins.open', open_mock, create=True):
+             resp = transport.session.send(request)
+             self.assertEqual(data, resp.content)
+ 
+-- 
+2.26.3
+
