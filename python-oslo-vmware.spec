@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x4c29ff0e437f3351fd82bdf47c5a3bc787dc7035
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name oslo.vmware
 %global pkg_name oslo-vmware
@@ -13,8 +13,8 @@ high quality, stable, consistent and generally useful. \
 The Oslo VMware library provides support for common VMware operations and APIs.
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        3.10.0
+Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
 License:        ASL 2.0
@@ -134,11 +134,11 @@ Translation files for Oslo vmware library
 # but eventlet 0.20.1-2 package has backported the fix
 sed -i '/eventlet/s/!=0.20.1,//' requirements.txt
 # FIXME(hguemar): we use system lxml from EL7
-sed -i '/lxml/s/,>=3.4.1//' requirements.txt
+sed -i '/^lxml.*/lxml/g' requirements.txt
 # We are managing BR on python3-suds manually. suds have two different
 # forks suds and suds-jurko. CentOS>8 is moving to suds instead of
 # suds jurko
-sed -i '/^suds-jurko.*/d' requirements.txt
+sed -i '/^suds-.*/d' requirements.txt
 
 %build
 %{py3_build}
@@ -191,3 +191,6 @@ PYTHON=python3 stestr-3 --test-path $OS_TEST_PATH run
 %license LICENSE
 
 %changelog
+* Mon Mar 14 2022 RDO <dev@lists.rdoproject.org> 3.10.0-1
+- Update to 3.10.0
+
