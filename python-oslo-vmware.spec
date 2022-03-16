@@ -20,7 +20,6 @@ Summary:        Oslo VMware library for OpenStack projects
 License:        ASL 2.0
 URL:            http://launchpad.net/oslo
 Source0:        https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
-Patch1:         0001-Don-t-use-requests.PreparedRequest.patch
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
 Source101:        https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz.asc
