@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x4c29ff0e437f3351fd82bdf47c5a3bc787dc7035
+%global sources_gpg_sign 0x01527a34f0d0080f8a5db8d6eb6c5df21b4b6363
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name oslo.vmware
 %global pkg_name oslo-vmware
@@ -13,7 +13,7 @@ high quality, stable, consistent and generally useful. \
 The Oslo VMware library provides support for common VMware operations and APIs.
 
 Name:           python-%{pkg_name}
-Version:        3.9.1
+Version:        3.9.2
 Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
@@ -191,6 +191,9 @@ PYTHON=python3 stestr-3 --test-path $OS_TEST_PATH run
 %license LICENSE
 
 %changelog
+* Thu Mar 17 2022 RDO <dev@lists.rdoproject.org> 3.9.2-1
+- Update to 3.9.2
+
 * Wed Sep 08 2021 RDO <dev@lists.rdoproject.org> 3.9.1-1
 - Update to 3.9.1
 
