@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00cb2105_176eb367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2022-04-08T16:08:58Z",
+      "side": 1,
+      "message": "recheck\n\ninfra issue   - Status code: 404 for http://mirror.centos.org/centos/8/nfv/x86_64/openvswitch-2/repodata/repomd.xml (IP: 192.210.57.130)",
+      "revId": "e7eaa02e21edaa43d51ac0865d04f443e8abc08e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
