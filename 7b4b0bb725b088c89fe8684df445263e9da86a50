@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3195d4_d66db749",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-04-12T13:48:03Z",
+      "side": 1,
+      "message": "This aims to address issue in https://review.rdoproject.org/r/c/openstack/oslo-vmware-distgit/+/40649",
+      "revId": "7b4b0bb725b088c89fe8684df445263e9da86a50",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
