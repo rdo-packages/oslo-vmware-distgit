@@ -48,7 +48,6 @@ BuildRequires:  git-core
 BuildRequires: python3-ddt
 BuildRequires: python3-fixtures
 BuildRequires: python3-mock
-BuildRequires: python3-mox3
 BuildRequires: python3-stestr
 BuildRequires: python3-subunit
 BuildRequires: python3-testtools
@@ -106,7 +105,6 @@ Summary:    Test subpackage for OpenStack common VMware library
 Requires: python3-%{pkg_name} = %{version}-%{release}
 Requires: python3-fixtures
 Requires: python3-mock
-Requires: python3-mox3
 Requires: python3-subunit
 Requires: python3-testtools
 Requires: python3-suds >= 0.6
