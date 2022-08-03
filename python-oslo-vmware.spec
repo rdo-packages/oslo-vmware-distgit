@@ -133,8 +133,8 @@ Translation files for Oslo vmware library
 # FIXME(hguemar): requirements blocks 0.20.1 due to lp#1696094
 # but eventlet 0.20.1-2 package has backported the fix
 sed -i '/eventlet/s/!=0.20.1,//' requirements.txt
-# FIXME(hguemar): we use system lxml from EL7
-sed -i '/lxml/s/,>=3.4.1//' requirements.txt
+# FIXME(hguemar): we use system lxml from EL8 Appstream
+sed -i 's/lxml.*/lxml/' requirements.txt
 # We are managing BR on python3-suds manually. suds have two different
 # forks suds and suds-jurko. CentOS>8 is moving to suds instead of
 # suds jurko
