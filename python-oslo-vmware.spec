@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x4c29ff0e437f3351fd82bdf47c5a3bc787dc7035
+%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name oslo.vmware
 %global pkg_name oslo-vmware
@@ -13,7 +13,7 @@ high quality, stable, consistent and generally useful. \
 The Oslo VMware library provides support for common VMware operations and APIs.
 
 Name:           python-%{pkg_name}
-Version:        3.9.1
+Version:        3.9.3
 Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
@@ -130,15 +130,10 @@ Translation files for Oslo vmware library
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
-# FIXME(hguemar): requirements blocks 0.20.1 due to lp#1696094
-# but eventlet 0.20.1-2 package has backported the fix
-sed -i '/eventlet/s/!=0.20.1,//' requirements.txt
-# FIXME(hguemar): we use system lxml from EL7
-sed -i '/lxml/s/,>=3.4.1//' requirements.txt
-# We are managing BR on python3-suds manually. suds have two different
-# forks suds and suds-jurko. CentOS>8 is moving to suds instead of
-# suds jurko
-sed -i '/^suds-jurko.*/d' requirements.txt
+# FIXME(hguemar): we use system lxml from EL8 Appstream
+sed -i 's/lxml.*/lxml/' requirements.txt
+
+
 
 %build
 %{py3_build}
@@ -191,6 +186,9 @@ PYTHON=python3 stestr-3 --test-path $OS_TEST_PATH run
 %license LICENSE
 
 %changelog
+* Fri Aug 05 2022 RDO <dev@lists.rdoproject.org> 3.9.3-1
+- Update to 3.9.3
+
 * Wed Sep 08 2021 RDO <dev@lists.rdoproject.org> 3.9.1-1
 - Update to 3.9.1
 
