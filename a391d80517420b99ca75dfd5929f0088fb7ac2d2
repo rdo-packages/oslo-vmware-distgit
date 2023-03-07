@@ -16,6 +16,23 @@
       "message": "missing concurrency",
       "revId": "a391d80517420b99ca75dfd5929f0088fb7ac2d2",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29f59c84_6920c538",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-03-07T16:42:04Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "a391d80517420b99ca75dfd5929f0088fb7ac2d2",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
