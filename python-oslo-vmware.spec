@@ -20,8 +20,8 @@ high quality, stable, consistent and generally useful. \
 The Oslo VMware library provides support for common VMware operations and APIs.
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        4.2.0
+Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
 License:        Apache-2.0
@@ -170,3 +170,6 @@ export OS_TEST_PATH="./oslo_vmware/tests"
 %license LICENSE
 
 %changelog
+* Fri Sep 01 2023 RDO <dev@lists.rdoproject.org> 4.2.0-1
+- Update to 4.2.0
+
