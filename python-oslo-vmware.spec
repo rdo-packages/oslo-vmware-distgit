@@ -170,3 +170,4 @@ export OS_TEST_PATH="./oslo_vmware/tests"
 %license LICENSE
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/oslo.vmware/commit/c9faaa09ffb82fafd18a06a76692dac47d5a7163
