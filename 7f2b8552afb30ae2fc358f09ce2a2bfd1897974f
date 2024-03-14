@@ -1,0 +1,9 @@
+Code-Review+2: Karolina Kula <kkula@redhat.com>
+Workflow+1: Karolina Kula <kkula@redhat.com>
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Thu, 14 Mar 2024 11:33:22 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/oslo-vmware-distgit/+/52231
+Project: openstack/oslo-vmware-distgit
+Branch: refs/heads/rpm-master
