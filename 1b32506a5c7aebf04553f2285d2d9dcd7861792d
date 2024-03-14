@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "1b32506a5c7aebf04553f2285d2d9dcd7861792d",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4d0f020_6dd79060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2024-03-14T09:33:56Z",
+      "side": 1,
+      "message": "FTBFS needs fix https://review.rdoproject.org/r/c/openstack/oslo-vmware-distgit/+/52117",
+      "revId": "1b32506a5c7aebf04553f2285d2d9dcd7861792d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
