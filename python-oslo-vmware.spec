@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
@@ -20,8 +20,8 @@ high quality, stable, consistent and generally useful. \
 The Oslo VMware library provides support for common VMware operations and APIs.
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        4.4.0
+Release:        1%{?dist}
 Summary:        Oslo VMware library for OpenStack projects
 
 License:        Apache-2.0
@@ -99,6 +99,7 @@ sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
 sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
 sed -i '/sphinx-build/ s/-W//' tox.ini
+sed -i "s/^suds-community.*/suds/" requirements.txt
 
 # Exclude some bad-known BRs
 for pkg in %{excluded_brs};do
@@ -170,3 +171,6 @@ export OS_TEST_PATH="./oslo_vmware/tests"
 %license LICENSE
 
 %changelog
+* Thu Mar 14 2024 RDO <dev@lists.rdoproject.org> 4.4.0-1
+- Update to 4.4.0
+
